@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row ">
+            <div class="col-lg-7 mx-auto">
+                <div class="card mt-2 mx-auto p-4 bg-light">
+                    <div class="card-body bg-light">
+                        <div class="container">
+                            <form id="contact-form" role="form" action="/rtoDetails" method="post">
+                                <div class="controls">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="form_name">owner name</label>
+                                                <input type="text" name="ownerName" class="form-control"
+                                                    placeholder="Please enter your owner name *"
+                                                    data-error="Firstname is required.">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="form_lastname">owner phone</label>
+                                                <input type="text" name="ownerPhone" class="form-control"
+                                                    placeholder="Please enter phone no *"
+                                                    data-error="Lastname is required.">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="form_name">vehicleNo</label>
+                                                <input type="text" name="vehicleNo" class="form-control"
+                                                    placeholder="Please enter vehicleNo *"
+                                                    data-error="Firstname is required.">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="form_lastname">engineNo</label>
+                                                <input type="text" name="engineNo" class="form-control"
+                                                    placeholder="Please enter engineNo*"
+                                                    data-error="Lastname is required.">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="form_name">brand</label>
+                                                <input type="text" name="brand" class="form-control"
+                                                    placeholder="Please enter brand *"
+                                                    data-error="Firstname is required.">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="form_lastname">state</label>
+                                                <select name="state" id="state">
+                                                    <option value="">Select State</option>
+                                                    <option value="AP">Andhra Pradesh</option>
+                                                    <option value="AR">Arunachal Pradesh</option>
+                                                    <option value="AS">Assam</option>
+                                                    <option value="BR">Bihar</option>
+                                                    <option value="CT">Chhattisgarh</option>
+                                                    <option value="GA">Gujarat</option>
+                                                    <option value="HR">Haryana</option>
+                                                    <option value="HP">Himachal Pradesh</option>
+                                                    <option value="JK">Jammu and Kashmir</option>
+                                                    <option value="GA">Goa</option>
+                                                    <option value="JH">Jharkhand</option>
+                                                    <option value="KA">Karnataka</option>
+                                                    <option value="KL">Kerala</option>
+                                                    <option value="MP">Madhya Pradesh</option>
+                                                    <option value="MH">Maharashtra</option>
+                                                    <option value="MN">Manipur</option>
+                                                    <option value="ML">Meghalaya</option>
+                                                    <option value="MZ">Mizoram</option>
+                                                    <option value="NL">Nagaland</option>
+                                                    <option value="OR">Odisha</option>
+                                                    <option value="PB">Punjab</option>
+                                                    <option value="RJ">Rajasthan</option>
+                                                    <option value="SK">Sikkim</option>
+                                                    <option value="TN">Tamil Nadu</option>
+                                                    <option value="TG">Telangana</option>
+                                                    <option value="TR">Tripura</option>
+                                                    <option value="UT">Uttarakhand</option>
+                                                    <option value="UP">Uttar Pradesh</option>
+                                                    <option value="WB">West Bengal</option>
+                                                    <option value="AN">Andaman and Nicobar Islands</option>
+                                                    <option value="CH">Chandigarh</option>
+                                                    <option value="DN">Dadra and Nagar Haveli</option>
+                                                    <option value="DD">Daman and Diu</option>
+                                                    <option value="DL">Delhi</option>
+                                                    <option value="LD">Lakshadweep</option>
+                                                    <option value="PY">Puducherry</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="form_name">chasisNo</label>
+                                                <input type="text" name="chasisNo" class="form-control"
+                                                    placeholder="Please enter chasisNo *"
+                                                    data-error="Firstname is required.">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="form_lastname">registrationUpto</label>
+                                                <input type="date" name="registrationUpto" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="form_name">taxpaidUpto</label>
+                                                <input type="date" name="taxpaidUpto" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="form_lastname">insurancepaidUpto</label>
+                                                <input type="date" name="insurancepaidUpto" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="form_name">pollutionUpto</label>
+                                                <input type="date" name="pollutionUpto" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="submit" value="submit" class="btn btn-primary">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
