@@ -19,28 +19,6 @@ app.get("/", (req, res) => {
     res.send("hello from home api");
 });
 
-app.get("/formdetails",async (req,res)=>{
-    await client.connect();
-
-    const rtodb = client.db(dbName);
-
-    const rtoDetails = rtodb.collection(collectionName);
-
-    try {
-        const query={mobile_no:9836269143};
-
-        const findData=rtoDetails.find(query);
-
-        if(findData){
-            return res.send(findData);
-        }else{
-            return res.json({verified:false});
-        }
-    } catch (error) {
-        console.log(error);
-    }
-});
-
 app.post("/rtoDetails", async (req, res) => {
     await client.connect();
 
