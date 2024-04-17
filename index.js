@@ -15,9 +15,6 @@ const client = new MongoClient(mongouri, { useNewUrlParser: true, useUnifiedTopo
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
-app.set('views',path.join(__dirname,'views'));
-app.set('view engine','ejs');
-
 app.get("/", (req, res) => {
     res.send("hello from home api");
 });
