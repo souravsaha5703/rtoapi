@@ -1,22 +1,29 @@
 require('dotenv').config();
 const express = require('express');
-const path=require('path');
+const cors = require('cors');
 const { MongoClient } = require('mongodb');
 
 const app = express();
 
 const PORT = process.env.PORT;
+
+app.use(cors({
+    origin: ["http://localhost:5173", "http://localhost:7000"],
+    methods: ["POST", "GET"],
+    credentials: true
+}));
+
 const mongouri = process.env.MONGODB_URI;
-const dbName = "test";
-const collectionName = "rtodetails";
+const dbName = process.env.DB_NAME;
+const collectionName = process.env.COLLECTION_NAME;
 
-const client = new MongoClient(mongouri, { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient(mongouri);
 
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.send("hello from home api");
+    res.status(201).json({ status: 201, message: "Hello from RTO API" });
 });
 
 app.post("/rtoDetails", async (req, res) => {
@@ -27,14 +34,14 @@ app.post("/rtoDetails", async (req, res) => {
     const rtoDetails = rtodb.collection(collectionName);
 
     try {
-        const query={owner_name:req.body.ownerName,mobile_no:req.body.ownerPhone,reg_no:req.body.vehicleNo,engine_no:req.body.engineNo,state_code:req.body.state,chassis_no:req.body.chasisNo,reg_upto:req.body.registrationUpto,tax_upto:req.body.taxpaidUpto,insurance_upto:req.body.insurancepaidUpto,pucc_upto:req.body.pollutionUpto};
+        const query = { reg_no: req.body.vehicleNo };
 
-        const findData=rtoDetails.find(query);
+        const result =await rtoDetails.findOne(query);
 
-        if(findData){
-            return res.json({verified:true});
-        }else{
-            return res.json({verified:false});
+        if (result) {
+            return res.status(201).json({ status: 201, verified: true, response: result });
+        } else {
+            return res.status(400).json({ status: 400, verified: false, message: "No Vehicle Found" });
         }
     } catch (error) {
         console.log(error);
